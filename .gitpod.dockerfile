@@ -60,6 +60,14 @@ COPY ./.devEnv/gitpod/config/apache2/apache2.conf /etc/apache2/apache2.conf
 COPY ./.devEnv/gitpod/config/apache2/envvars /etc/apache2/envvars
 COPY --chown=gitpod:gitpod ./.devEnv/gitpod/tools/phpinfo.php /var/www/html/tools/phpinfo.php
 
+# Enable apache modules
+RUN a2enmod headers \
+    && a2enmod rewrite \
+    && a2enmod proxy \
+    && a2enmod proxy_fcgi \
+    && a2enmod proxy_http \
+    && a2enmod ssl
+
 # Install additional packages
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash \
     && sudo apt install -y \

@@ -1,0 +1,9 @@
+# Editor folders
+.idea
+.vscode
+
+# general folders
+vendor
+
+# oxid folders
+source/*

@@ -60,7 +60,6 @@ ports:
 tasks:
     - name: Docker
       init: |
-        sleep 10 &&
         docker-compose pull &&
         gp sync-done docker-pull
       command: |

@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
-sudo update-alternatives --set php /usr/bin/php8.1
-sudo update-alternatives --set php-config /usr/bin/php-config8.1
+# Infos for GitpodTool
+#
+# gptBranch: oxid
+# gptBranchDescription: Commands for Oxid
+# gptCommand: install_demo
+# gptDescription: install oxid
 
 sudo apt-get update
 sudo apt-get install -y php8.1-curl

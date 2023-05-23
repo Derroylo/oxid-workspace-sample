@@ -19,8 +19,8 @@ ports:
   - port: 8025
     onOpen: ignore
     visibility: private
-    name: Mailhog
-    description: Shows the Webinterface for Mailhog
+    name: Mailpit
+    description: Shows the Webinterface for Mailpit
   - port: 8081
     onOpen: ignore
     visibility: private
@@ -39,7 +39,7 @@ ports:
   - port: 1025
     onOpen: ignore
     visibility: private
-    name: Mailhog Mailserver
+    name: Mailpit Mailserver
     description: Endpoint for the Mailserver
   - port: 3306
     onOpen: ignore
@@ -58,21 +58,16 @@ ports:
 # Define tasks that should be executed
 # Documentation: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
-    - name: Docker
-      before: sudo curl -o /usr/local/bin/docker-compose -fsSL https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-linux-$(uname -m)
+    - name: Docker Services and Oxid Install
+      before: |
+        gpt php restore
       init: |
-        docker-compose pull &&
-        gp sync-done docker-pull
-      command: |
-        docker-compose up
-    - name: Install Oxid Demo
-      init: |
-        gp sync-await docker-pull &&
-        docker-compose up -d &&
+        gpt services start --detached &&
         gp ports await 3306 &&
-        chmod +x ./.devEnv/gitpod/scripts/install_oxid_demo.sh &&
-        ./.devEnv/gitpod/scripts/install_oxid_demo.sh
-      command: gp sync-done oxid-install
+        gpt oxid install_demo
+      command: |
+        gp sync-done oxid-install &&
+        gpt services start
     - name: Apache
       command: |
         gp sync-await oxid-install &&
@@ -110,3 +105,5 @@ vscode:
     - EditorConfig.EditorConfig
     - streetsidesoftware.code-spell-checker
     - rangav.vscode-thunder-client
+    - redhat.vscode-xml
+    - aswinkumar863.smarty-template-support

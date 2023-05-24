@@ -28,6 +28,6 @@ The often used phpinfo()(which shows the current PHP-Version, which modules are 
 The installation of OXID will be done via an install script that can be found under `.devEnv/gitpod/scripts/install_oxid_demo.sh`
 
 ## Important notice
-Once you start the workspace and the OXID installer is showing, you will notice that `mod_rewrite` is labeled as red and the installation can not continue. That is a false positive error message and occurs because how gitpod handles port forwarding internaly. To correct it you need to edit the following file `oxid-esales/oxideshop-ce/source/Core/SystemRequirements.php`. Within the function `getRequiredModules` the entry for `mod_rewrite` needs to be removed.
+Once you start the workspace and the OXID installer is showing, you will notice that `mod_rewrite` is labeled as red and the installation can not continue. That is a false positive error message and occurs because how gitpod handles port forwarding internaly. To correct it you need to edit the following file `vendor/oxid-esales/oxideshop-ce/source/Core/SystemRequirements.php`. Within the function `getRequiredModules` the entry for `mod_rewrite` needs to be removed.
 
-During the installation process you will get asked for the database connection. Enter `localhost:3306` as host and leave the port field empty. The user for the database is `root` and the password is `gitpod`
+During the installation process you will get asked for the database connection. Enter `localhost:3306` as host and leave the port field empty. The database is `gitpod`, user is `root` and the password is `gitpod`

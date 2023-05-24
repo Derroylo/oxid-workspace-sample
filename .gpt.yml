@@ -4,6 +4,11 @@ php:
     memory_limit: 512M
     xdebug.start_with_request: yes
     xdebug.mode: debug
+  packages:
+  - php8.1-curl
+  - php8.1-zip
+  - php8.1-pdo-mysql
+  - php8.1-gd
 services:
   active:
   - mysql

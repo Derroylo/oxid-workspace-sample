@@ -1,16 +1,21 @@
+config:
+  allowPreReleases: false
 php:
   version: 8.1
   config:
-    memory_limit: 512M
+    opcache.enable: off
+    xdebug.mode: off
     xdebug.start_with_request: yes
-    xdebug.mode: debug
-  packages:
-  - php8.1-curl
-  - php8.1-zip
-  - php8.1-pdo-mysql
-  - php8.1-gd
+  configWeb:
+    memory_limit: 512M
+  configCLI:
+    max_execution_time: 0
+    memory_limit: -1
+nodejs:
+  version: 18.18.2
 services:
   active:
   - mysql
   - mailpit
   - phpmyadmin
+shellScripts: {}

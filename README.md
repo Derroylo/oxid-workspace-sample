@@ -1,6 +1,6 @@
-# Oxid 6 workspace template for gitpod.io
+# Oxid 7 workspace template for gitpod.io
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/derroylo/oxid-workspace-sample)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/Derroylo/oxid-workspace-sample/tree/v7.x)
 
 ## What is this?
 This is an example workspace for [Gitpod](https://www.gitpod.io/) with the eCommerce System [Oxid](https://www.oxid-esales.com/) which aims to provide a fully usable workspace for development instead of just a simple sample.
@@ -39,4 +39,13 @@ Some additional services are already added via docker-compose.yml but you can ad
 ## Informations
 - xDebug is enabled via default, so the console might show some deprecated notices during setup
 - Add `/phpinfo` to the url of the frontend (`https://8000-xxxxx.ws-xx.gitpod.io/`) to show the current used php version, active modules and settings
-- The installation routine of oxid can be found under `.devEnv/gitpod/scripts/oxid/install_oxid_demo.sh`
+- Add `/xdebuginfo` to the url of the frontend (`https://8000-xxxxx.ws-xx.gitpod.io/`) to show the current xdebug settings
+- Add `/adminer` to the url of the frontend (`https://8000-xxxxx.ws-xx.gitpod.io/`) to open Adminer, an alternative to phpmyadmin
+- The installation routine of oxid can be found under `.devEnv/gitpod/scripts/oxid/install_demo.sh`
+
+### 15.10.2023
+- Added adminer as alternative to phpmyadmin
+- Added xdebug info shortcut
+- Updated .gpt.yml for GPT 0.4.x
+- Corrected some problems with choosing nodejs version
+- phpmyadmin and phpcacheadmin wouldn´t start sometimes correctly
